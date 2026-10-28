@@ -1,55 +1,60 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://unistyl.es/), etc.
+ * Tokens de diseño de AppAr. La app es deliberadamente solo oscura: la paleta,
+ * los degradados y la tipografía de abajo se comparten en todas las pantallas.
  */
 
 import '@/global.css';
 
-import { Platform } from 'react-native';
-
 export const Colors = {
-  light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-  },
-  dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-  },
+  background: '#07080C',
+  backgroundAlt: '#0B0D13',
+  surface: '#10131B',
+  surfaceHigh: '#161A24',
+  surfaceGlass: 'rgba(22, 26, 36, 0.72)',
+  border: '#202532',
+  borderSoft: 'rgba(255, 255, 255, 0.06)',
+  text: '#F7F8FB',
+  textSecondary: '#9AA4B8',
+  textMuted: '#626C80',
+  accent: '#7C5CFF',
+  accentLight: '#A78BFA',
+  accentSoft: 'rgba(124, 92, 255, 0.14)',
+  cyan: '#31E1E8',
+  positive: '#3DDC97',
+  positiveSoft: 'rgba(61, 220, 151, 0.12)',
+  negative: '#FF5C7C',
+  negativeSoft: 'rgba(255, 92, 124, 0.12)',
+  warning: '#FFB547',
+  white: '#FFFFFF',
+  black: '#000000',
 } as const;
 
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
+export const Gradients = {
+  background: ['#080A11', '#07080C'] as const,
+  hero: ['#2A1D63', '#161A2E', '#10131B'] as const,
+  accent: ['#8B6CFF', '#6C4EF6'] as const,
+  positive: ['rgba(61, 220, 151, 0.20)', 'rgba(61, 220, 151, 0.02)'] as const,
+  negative: ['rgba(255, 92, 124, 0.20)', 'rgba(255, 92, 124, 0.02)'] as const,
+  neutral: ['rgba(124, 92, 255, 0.18)', 'rgba(16, 19, 27, 0.02)'] as const,
+  tabActive: ['rgba(124, 92, 255, 0.34)', 'rgba(124, 92, 255, 0.08)'] as const,
+  chartLine: ['#A78BFA', '#7C5CFF'] as const,
+} as const;
 
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
-  },
-});
+export const Fonts = {
+  regular: 'Manrope_400Regular',
+  medium: 'Manrope_500Medium',
+  semibold: 'Manrope_600SemiBold',
+  bold: 'Manrope_700Bold',
+  extrabold: 'Manrope_800ExtraBold',
+  mono: 'monospace',
+} as const;
+
+export type ThemeColor =
+  | 'text'
+  | 'background'
+  | 'backgroundElement'
+  | 'backgroundSelected'
+  | 'textSecondary';
 
 export const Spacing = {
   half: 2,
@@ -61,5 +66,13 @@ export const Spacing = {
   six: 64,
 } as const;
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
-export const MaxContentWidth = 800;
+export const Radius = {
+  small: 10,
+  medium: 14,
+  large: 20,
+  xlarge: 26,
+  pill: 999,
+} as const;
+
+export const BottomTabInset = 104;
+export const MaxContentWidth = 760;
